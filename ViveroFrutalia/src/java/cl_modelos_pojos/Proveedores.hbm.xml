@@ -1,24 +1,42 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 12/03/2017 03:42:57 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 6/04/2017 10:15:53 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="cl_modelos_pojos.Proveedores" table="proveedores" catalog="frutaliav1" optimistic-lock="version">
-        <id name="cedula" type="string">
-            <column name="cedula" length="15" />
+    <class name="cl_modelos_pojos.Proveedores" table="proveedores" schema="public" optimistic-lock="version">
+        <id name="cedula" type="int">
+            <column name="cedula" />
             <generator class="assigned" />
         </id>
         <property name="nombre" type="string">
-            <column name="nombre" length="20" not-null="true" />
+            <column name="nombre" not-null="true" />
         </property>
         <property name="apellido" type="string">
-            <column name="apellido" length="30" not-null="true" />
+            <column name="apellido" not-null="true" />
         </property>
         <property name="telefono" type="string">
-            <column name="telefono" length="60" not-null="true" />
+            <column name="telefono" not-null="true" />
         </property>
         <property name="correo" type="string">
-            <column name="correo" length="120" not-null="true" />
+            <column name="correo" not-null="true" />
         </property>
+        <set name="comprasPlantas" table="compras_planta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="proveedores_cedula" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.ComprasPlanta" />
+        </set>
+        <set name="compraSuministroses" table="compra_suministros" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="proveedores_cedula" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.CompraSuministros" />
+        </set>
+        <set name="plantasProveedoreses" table="plantas_proveedores" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="proveedores_cedula" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.PlantasProveedores" />
+        </set>
     </class>
 </hibernate-mapping>

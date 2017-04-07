@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class clientesController {
 
     @RequestMapping(value = "/clientesCRUD_registrar.htm", method = RequestMethod.POST)
-    public String registrar(@RequestParam("cedula") String cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, Model model) {
+    public String registrar(@RequestParam("cedula") int cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, Model model) {
         ClientesDAO clienteDAO = new ClientesDAO();
         clienteDAO.ingresarCliente(cedula, nombre, apellido, telefono, correo);
         model.addAttribute("clientes", clienteDAO.obtenerClientes());
@@ -30,7 +30,7 @@ public class clientesController {
     }
 
     @RequestMapping(value = "/clientesCRUD_consultarTodos.htm", method = RequestMethod.GET)
-    public String consultarServicios(Model model) {
+    public String consultarClientes(Model model) {
         ClientesDAO clienteDAO = new ClientesDAO();
         model.addAttribute("clientes", clienteDAO.obtenerClientes());
         return "clientes";
@@ -46,15 +46,15 @@ public class clientesController {
     }
 
     @RequestMapping(value = "/clientesCRUD_eliminar.htm", method = RequestMethod.GET)
-    public String eliminarClientePorCedula(@RequestParam("cedula") String cedula, Model model) {
+    public String eliminarClientePorCedula(@RequestParam("cedula") int cedula, Model model) {
         ClientesDAO clienteDAO = new ClientesDAO();
         clienteDAO.eliminarCliente((cedula));
         model.addAttribute("clientes", clienteDAO.obtenerClientes());
         return "clientes";
     }
 
-    @RequestMapping(value = "/clientesCRUD_actualizar.htm", method = RequestMethod.POST)
-    public String actualizarServicio(@RequestParam("cedula") String cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, Model model) {
+    @RequestMapping(value = "/clientesCRUD_actualizar.htm", method = RequestMethod.GET)
+    public String actualizarCliente(@RequestParam("cedula") int cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, Model model) {
         ClientesDAO clienteDAO = new ClientesDAO();
         Clientes s = clienteDAO.actualizarCliente(cedula, nombre, apellido, telefono, correo);
         model.addAttribute("cliente", s);

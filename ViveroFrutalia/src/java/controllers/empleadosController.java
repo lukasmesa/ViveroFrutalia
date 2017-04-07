@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class empleadosController {
 
     @RequestMapping(value = "/empleadosCRUD_registrar.htm", method = RequestMethod.POST)
-    public String registrar(@RequestParam("cedula") String cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, @RequestParam("hoja_vida") String HV, Model model) {
+    public String registrar(@RequestParam("cedula") int cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, @RequestParam("hoja_vida") String HV, Model model) {
         EmpleadosDAO empleadoDAO = new EmpleadosDAO();
         empleadoDAO.ingresarEmpleado(cedula, nombre, apellido, telefono, correo,HV);
         model.addAttribute("empleados", empleadoDAO.obtenerEmpleados());
@@ -54,7 +54,7 @@ public class empleadosController {
     }
 
     @RequestMapping(value = "/empleadosCRUD_actualizar.htm", method = RequestMethod.POST)
-    public String actualizarServicio(@RequestParam("cedula") String cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo,@RequestParam("hoja_vida") String HV, Model model) {
+    public String actualizarServicio(@RequestParam("cedula") int cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo,@RequestParam("hoja_vida") String HV, Model model) {
         EmpleadosDAO EmpleadoDAO = new EmpleadosDAO();
         Empleados s = EmpleadoDAO.actualizarEmpleado(cedula, nombre, apellido, telefono, correo,HV);
         model.addAttribute("empleado", s);

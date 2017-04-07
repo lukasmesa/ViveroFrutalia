@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 6/04/2017 10:15:53 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cl_modelos_pojos.PeticionServicios" table="peticion_servicios" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="clientes" class="cl_modelos_pojos.Clientes" fetch="select">
+            <column name="cliente_cedula" not-null="true" />
+        </many-to-one>
+        <many-to-one name="servicios" class="cl_modelos_pojos.Servicios" fetch="select">
+            <column name="servicios_id" not-null="true" />
+        </many-to-one>
+        <property name="fechaInicio" type="date">
+            <column name="fecha_inicio" length="13" not-null="true" />
+        </property>
+        <property name="fechaFinal" type="date">
+            <column name="fecha_final" length="13" not-null="true" />
+        </property>
+        <property name="descuento" type="java.lang.Integer">
+            <column name="descuento" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" not-null="true" />
+        </property>
+        <property name="costo" type="int">
+            <column name="costo" not-null="true" />
+        </property>
+        <set name="empleadosServicioses" table="empleados_servicios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="peticionServicios_id" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.EmpleadosServicios" />
+        </set>
+    </class>
+</hibernate-mapping>
