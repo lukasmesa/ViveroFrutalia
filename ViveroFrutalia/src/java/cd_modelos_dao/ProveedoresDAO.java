@@ -24,7 +24,7 @@ public class ProveedoresDAO {
 
     }
 
-    public void ingresarproveedor(String cedula, String nombre, String apellido, String telefono, String correo) {
+    public void ingresarproveedor(int cedula, String nombre, String apellido, String telefono, String correo) {
         Proveedores ser = new Proveedores(cedula, nombre, apellido, telefono, correo);
         SessionFactory sf = null;
         Transaction t = null;
@@ -57,11 +57,9 @@ public class ProveedoresDAO {
         List<Proveedores> lista = new LinkedList<>();
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
-        Transaction t = s.beginTransaction();
         Query q = s.createQuery("delete from Proveedores where cedula = :cedula");
         q.setString("cedula", cedula);
         q.executeUpdate();
-        t.commit();
         s.close();
 
 //        SessionFactory sf = HibernateUtil.getSessionFactory();
@@ -73,7 +71,7 @@ public class ProveedoresDAO {
 //        s.close();
     }
 
-    public Proveedores actualizarproveedor(String cedula, String nombre, String apellido, String telefono, String correo) {
+    public Proveedores actualizarproveedor(int cedula, String nombre, String apellido, String telefono, String correo) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
 
         try {

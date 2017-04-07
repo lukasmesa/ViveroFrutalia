@@ -24,8 +24,8 @@ public class ServiciosDAO {
 
     }
 
-    public void ingresarServicio(String nombre, String descripcion, int costo) {
-        Servicios ser = new Servicios(nombre, descripcion, costo);
+    public void ingresarServicio( String nombre, String descripcion) {
+        Servicios ser = new Servicios( nombre, descripcion);
         SessionFactory sf = null;
         Transaction t = null;
         Session s = null;
@@ -54,13 +54,12 @@ public class ServiciosDAO {
     }
 
     public void eliminarServicio(int id) {
+        List<Servicios> lista = new LinkedList<>();
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
-        Transaction t = s.beginTransaction();
         Query q = s.createQuery("delete from Servicios where id = :id");
         q.setInteger("id", id);
         q.executeUpdate();
-        t.commit();
         s.close();
 
 //        SessionFactory sf = HibernateUtil.getSessionFactory();
@@ -79,10 +78,8 @@ public class ServiciosDAO {
             Session s = sf.openSession();
             Transaction t = s.beginTransaction();
             Servicios u = new Servicios();
-            u.setId(id);
             u.setNombre(nombre);
             u.setDescripcion(descripcion);
-            u.setCosto(costo);
             s.update(u);
             t.commit();
             s.close();

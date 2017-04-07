@@ -1,24 +1,36 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 12/03/2017 03:42:57 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 6/04/2017 10:15:53 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="cl_modelos_pojos.Plantas" table="plantas" catalog="frutaliav1" optimistic-lock="version">
-        <id name="id" type="java.lang.Integer">
+    <class name="cl_modelos_pojos.Plantas" table="plantas" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
             <column name="id" />
-            <generator class="identity" />
+            <generator class="assigned" />
         </id>
-        <many-to-one name="tipoplanta" class="cl_modelos_pojos.Tipoplanta" fetch="select">
-            <column name="tipo" />
+        <many-to-one name="tipoPlanta" class="cl_modelos_pojos.TipoPlanta" fetch="select">
+            <column name="tipo" not-null="true" />
         </many-to-one>
         <property name="nombre" type="string">
-            <column name="nombre" length="50" />
+            <column name="nombre" not-null="true" />
         </property>
         <property name="descripcion" type="string">
-            <column name="descripcion" length="100" />
+            <column name="descripcion" length="100" not-null="true" />
         </property>
         <property name="imagen" type="string">
-            <column name="imagen" length="200" />
+            <column name="imagen" not-null="true" />
         </property>
+        <set name="plantasProveedoreses" table="plantas_proveedores" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="plantas_id" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.PlantasProveedores" />
+        </set>
+        <set name="etapasPlantas" table="etapas_planta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="plantas_id" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.EtapasPlanta" />
+        </set>
     </class>
 </hibernate-mapping>
