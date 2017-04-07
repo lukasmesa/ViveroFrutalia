@@ -42,7 +42,7 @@ public class ProveedoresDAO {
         }
     }
 
-    public Proveedores consultarproveedorPorCedula(String cedula) {
+    public Proveedores consultarproveedorPorCedula(int cedula) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
         Proveedores ser = (Proveedores) s.get(Proveedores.class, cedula);
@@ -53,12 +53,12 @@ public class ProveedoresDAO {
         return null;
     }
 
-    public void eliminarproveedor(String cedula) {
+    public void eliminarproveedor(int cedula) {
         List<Proveedores> lista = new LinkedList<>();
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
         Query q = s.createQuery("delete from Proveedores where cedula = :cedula");
-        q.setString("cedula", cedula);
+        q.setInteger("cedula", cedula);
         q.executeUpdate();
         s.close();
 

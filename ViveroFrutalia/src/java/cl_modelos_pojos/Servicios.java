@@ -1,5 +1,5 @@
 package cl_modelos_pojos;
-// Generated 6/04/2017 10:15:51 AM by Hibernate Tools 4.3.1
+// Generated 7/04/2017 03:07:58 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -30,13 +30,12 @@ public class Servicios  implements java.io.Serializable {
     }
 
 	
-    public Servicios( String nombre, String descripcion) {
-        //this.id = id;
+    public Servicios(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
-    public Servicios( String nombre, String descripcion, Set<PeticionServicios> peticionServicioses) {
-       
+    public Servicios(int id, String nombre, String descripcion, Set<PeticionServicios> peticionServicioses) {
+       this.id = id;
        this.nombre = nombre;
        this.descripcion = descripcion;
        this.peticionServicioses = peticionServicioses;
@@ -50,6 +49,9 @@ public class Servicios  implements java.io.Serializable {
         return this.id;
     }
     
+    public void setId(int id) {
+        this.id = id;
+    }
 
     
     @Column(name="nombre", nullable=false)

@@ -1,5 +1,5 @@
 package cl_modelos_pojos;
-// Generated 6/04/2017 10:15:51 AM by Hibernate Tools 4.3.1
+// Generated 7/04/2017 03:07:58 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.AttributeOverride;

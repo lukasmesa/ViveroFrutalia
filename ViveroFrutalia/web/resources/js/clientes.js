@@ -5,12 +5,12 @@
  */
 
 function editarCliente(id) {
-    window.location = "clientesCRUD_actualizar.htm?cedula="+id;
+    window.location = "clientesCRUD_consultar.htm?cedula="+id;
 }
 function redimensionar(i, ii, j) {
     document.getElementById("panelEdicion").setAttribute("style", " visibility: visible ");
     document.getElementById("panelVista").setAttribute("class", " col-xs-" + i + " col-xs-offset-" + ii);
-    //document.getElementById("panelEdicion").setAttribute("class", " col-xs-" + j);
+    document.getElementById("panelEdicion").setAttribute("class", " col-xs-" + j);
 }
 function agregarCliente() {
     

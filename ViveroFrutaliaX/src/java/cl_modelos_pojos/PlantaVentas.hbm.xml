@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 6/04/2017 10:15:53 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cl_modelos_pojos.PlantaVentas" table="planta_ventas" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="etapasPlanta" class="cl_modelos_pojos.EtapasPlanta" fetch="select">
+            <column name="plantas_id" not-null="true" />
+            <column name="etapas_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="ventasPlanta" class="cl_modelos_pojos.VentasPlanta" fetch="select">
+            <column name="id_ventasPlanta" not-null="true" />
+        </many-to-one>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+        <property name="descuento" type="java.lang.Integer">
+            <column name="descuento" />
+        </property>
+    </class>
+</hibernate-mapping>
