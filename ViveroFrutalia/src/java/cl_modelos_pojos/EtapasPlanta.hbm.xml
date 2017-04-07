@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 6/04/2017 10:15:53 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cl_modelos_pojos.EtapasPlanta" table="etapas_planta" schema="public" optimistic-lock="version">
+        <composite-id name="id" class="cl_modelos_pojos.EtapasPlantaId">
+            <key-property name="plantasId" type="int">
+                <column name="plantas_id" />
+            </key-property>
+            <key-property name="etapasId" type="int">
+                <column name="etapas_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="etapas" class="cl_modelos_pojos.Etapas" update="false" insert="false" fetch="select">
+            <column name="etapas_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="plantas" class="cl_modelos_pojos.Plantas" update="false" insert="false" fetch="select">
+            <column name="plantas_id" not-null="true" />
+        </many-to-one>
+        <property name="precioVenta" type="int">
+            <column name="precioVenta" not-null="true" />
+        </property>
+        <property name="precioCompra" type="java.lang.Integer">
+            <column name="precioCompra" />
+        </property>
+        <set name="plantaVentases" table="planta_ventas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="plantas_id" not-null="true" />
+                <column name="etapas_id" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.PlantaVentas" />
+        </set>
+        <set name="plantasCompras" table="plantas_compra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="plantas_id" not-null="true" />
+                <column name="etapas_id" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.PlantasCompra" />
+        </set>
+        <set name="perdidasPlantas" table="perdidas_planta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="plantas_id" not-null="true" />
+                <column name="etapas_id" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.PerdidasPlanta" />
+        </set>
+    </class>
+</hibernate-mapping>

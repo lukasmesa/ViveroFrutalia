@@ -23,7 +23,7 @@ public class proveedoresController {
 
         ProveedoresDAO proveedorDAO = new ProveedoresDAO();
     @RequestMapping(value = "/proveedoresCRUD_registrar.htm", method = RequestMethod.POST)
-    public String registrar(@RequestParam("cedula") String cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, Model model) {
+    public String registrar(@RequestParam("cedula") int cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, Model model) {
         proveedorDAO.ingresarproveedor(cedula, nombre, apellido, telefono, correo);
         model.addAttribute("proveedores", proveedorDAO.obtenerProveedores());
         return "proveedores";
@@ -51,7 +51,7 @@ public class proveedoresController {
     }
 
     @RequestMapping(value = "/proveedoresCRUD_actualizar.htm", method = RequestMethod.POST)
-    public String actualizarServicio(@RequestParam("cedula") String cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, Model model) {
+    public String actualizarServicio(@RequestParam("cedula") int cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, Model model) {
         Proveedores s = proveedorDAO.actualizarproveedor(cedula, nombre, apellido, telefono, correo);
         model.addAttribute("proveedor", s);
         return "proveedoresDetalle";
