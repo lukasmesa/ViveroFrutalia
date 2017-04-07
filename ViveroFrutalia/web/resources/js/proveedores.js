@@ -10,7 +10,7 @@ function editarProveedor(id) {
 function redimensionar(i, ii, j) {
     document.getElementById("panelEdicion").setAttribute("style", " visibility: visible ");
     document.getElementById("panelVista").setAttribute("class", " col-xs-" + i + " col-xs-offset-" + ii);
-    document.getElementById("panelEdicion").setAttribute("class", " col-xs-offset-2 col-xs-" + j);
+    document.getElementById("panelEdicion").setAttribute("class", " col-xs-" + j);
 }
 function agregarProveedor() {
     
@@ -19,7 +19,7 @@ function agregarProveedor() {
     $("#apellido").val = "";
     $("#telefono").val = "";
     $("#correo").val = "";
-    redimensionar(10, 1, 8);
+    redimensionar(10, 1, 10);
 }
 function eliminarProveedor(id){
         window.location = "proveedoresCRUD_eliminar.htm?cedula="+id;

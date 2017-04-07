@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Vivero Frutalia</title>
+        <title>Welcome to Spring Web MVC project</title>
         <jsp:include page="fragmentos/links.jsp" />
         <jsp:include page="fragmentos/scripts.jsp" />
     </head>

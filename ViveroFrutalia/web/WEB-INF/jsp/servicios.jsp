@@ -41,7 +41,6 @@
                             <tr>
                                 <td>Nombre</td>
                                 <td>Descripcion</td>
-                                <td>Costo</td>
                                 <td>Operaciones</td>
                             </tr>
                         </thead>
@@ -53,7 +52,6 @@
                             <tr>
                                 <td> <%=i.getNombre()%> </td>
                                 <td> <%=i.getDescripcion()%> </td>
-                                <td> <%=i.getCosto()%> </td>
                                 <td>
                                     <button class="btn btn-danger"  onclick="eliminarServicio('<%=i.getId()%>')"      id="eliminar_<%=i.getId()%>">X</button>
 
@@ -86,29 +84,22 @@
 
 
                             <div class="form-group frm col-xs-12">
-                                <div class="col-xs-12">
+                                <div class="col-xs-3">
                                     <label class="control-label">Nombre del servicio</label>
                                 </div>
-                                <div class="col-xs-12">
+                                <div class="col-xs-9">
                                     <input type="text" class="form-control"  name="nombre" id="nombre" placeholder="Servicio">
                                 </div>
                             </div>
                             <div class="form-group frm col-xs-12">
-                                <div class="col-xs-12">
+                                <div class="col-xs-3">
                                     <label class="control-label">Descripción</label>
                                 </div>
-                                <div class="col-xs-12">
+                                <div class="col-xs-9">
                                     <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group frm col-xs-12">
-                                <div class="col-xs-12">
-                                    <label class="control-label col-xs-3">Costo</label>
-                                </div>
-                                <div class="col-xs-12">
-                                    <input type="text" class="form-control" name="costo" id="costo">
-                                </div>
-                            </div>
+                            
 
                             <div class="form-group frm col-xs-12">
                                 <center>

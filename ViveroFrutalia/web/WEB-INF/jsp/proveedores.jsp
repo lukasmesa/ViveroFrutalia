@@ -35,7 +35,7 @@
                 <br>
                 <br>
                 <br>
-                <div id = "panelVista" class="col-xs-10 col-xs-offset-1" style = " margin-bottom: 100px;background-color: #fff; padding: 20px;">
+                <div id = "panelVista" class="col-xs-10 col-xs-offset-1" style = "background-color: #fff; padding: 20px;">
                     <br>
                     <table class="table table-hover" style = "background-color: white">
                         <thead>
@@ -79,7 +79,6 @@
                         <center><button class=" btn btn-info" onclick="agregarProveedor()">Agregar proveedor</button></center> 
                     </div>
                 </div>
-              
 
 
                 <div id = "panelEdicion"  class="col-xs-8 col-xs-offset-2" style="visibility: hidden;">

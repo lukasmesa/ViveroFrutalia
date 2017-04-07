@@ -42,7 +42,7 @@ public class EmpleadosDAO {
         }
     }
 
-    public Empleados consultarEmpleadoPorCedula(String cedula) {
+    public Empleados consultarEmpleadoPorCedula(int cedula) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
         Empleados ser = (Empleados) s.get(Empleados.class, cedula);
@@ -53,12 +53,12 @@ public class EmpleadosDAO {
         return null;
     }
 
-    public void eliminarEmpleado(String cedula) {
+    public void eliminarEmpleado(int cedula) {
         List<Empleados> lista = new LinkedList<>();
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
         Query q = s.createQuery("delete from Empleados where cedula = :cedula");
-        q.setString("cedula", cedula);
+        q.setInteger("cedula", cedula);
         q.executeUpdate();
         s.close();
 
