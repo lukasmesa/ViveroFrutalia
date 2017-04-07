@@ -95,7 +95,7 @@
                                         <label class="control-label">Hoja de vida</label>
                                     </div>
                                     <div class="col-xs-9">
-                                        <input type="text" class="form-control" value="<%= s.getHojaVida()%>" name="hoja_vida" id="hoja_vida" >
+                                        <input type="text" class="form-control" value="<%= s.getHojaDeVida()%>" name="hoja_vida" id="hoja_vida" >
                                     </div>
                                 </div>
                                 

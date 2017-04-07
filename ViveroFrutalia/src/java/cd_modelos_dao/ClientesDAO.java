@@ -6,6 +6,7 @@
 package cd_modelos_dao;
 
 import cl_modelos_pojos.Clientes;
+import java.sql.Connection;
 import java.util.LinkedList;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
@@ -42,7 +43,7 @@ public class ClientesDAO {
         }
     }
 
-    public Clientes consultarClientePorCedula(String cedula) {
+    public Clientes consultarClientePorCedula(int cedula) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
         Clientes ser = (Clientes) s.get(Clientes.class, cedula);
@@ -63,8 +64,7 @@ public class ClientesDAO {
         q.executeUpdate();
         t.commit();
         s.close();
-        
-        
+
 //        SessionFactory sf = HibernateUtil.getSessionFactory();
 //        Session s = sf.openSession();
 //        Servicios ser = consultarServicioPorId(id);
@@ -75,8 +75,8 @@ public class ClientesDAO {
     }
 
     public Clientes actualizarCliente(int cedula, String nombre, String apellido, String telefono, String correo) {
+        
         SessionFactory sf = HibernateUtil.getSessionFactory();
-
         try {
             Session s = sf.openSession();
             Transaction t = s.beginTransaction();
@@ -94,12 +94,10 @@ public class ClientesDAO {
 
     public List<Clientes> obtenerClientes() {
         List<Clientes> lista = new LinkedList<>();
-        SessionFactory sf = NewHibernateUtil.getSessionFactory();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
-       //Transaction t = s.beginTransaction();
         Query q = s.createQuery("from Clientes");
         lista = q.list();
-        //t.commit();
         s.close();
 
         return lista;

@@ -24,8 +24,8 @@ public class ServiciosDAO {
 
     }
 
-    public void ingresarServicio( String nombre, String descripcion) {
-        Servicios ser = new Servicios( nombre, descripcion);
+    public void ingresarServicio(String nombre, String descripcion) {
+        Servicios ser = new Servicios(nombre, descripcion);
         SessionFactory sf = null;
         Transaction t = null;
         Session s = null;
@@ -71,7 +71,7 @@ public class ServiciosDAO {
 //        s.close();
     }
 
-    public Servicios actualizarServicio(int id, String nombre, String descripcion, int costo) {
+    public Servicios actualizarServicio(String nombre, String descripcion) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
 
         try {
