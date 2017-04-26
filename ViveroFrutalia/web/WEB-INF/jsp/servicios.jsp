@@ -84,22 +84,22 @@
 
 
                             <div class="form-group frm col-xs-12">
-                                <div class="col-xs-3">
+                                <div class="col-xs-12">
                                     <label class="control-label">Nombre del servicio</label>
                                 </div>
-                                <div class="col-xs-9">
+                                <div class="col-xs-12">
                                     <input type="text" class="form-control"  name="nombre" id="nombre" placeholder="Servicio">
                                 </div>
                             </div>
                             <div class="form-group frm col-xs-12">
-                                <div class="col-xs-3">
+                                <div class="col-xs-12">
                                     <label class="control-label">Descripción</label>
                                 </div>
-                                <div class="col-xs-9">
+                                <div class="col-xs-12">
                                     <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
                                 </div>
                             </div>
-                            
+                        
 
                             <div class="form-group frm col-xs-12">
                                 <center>

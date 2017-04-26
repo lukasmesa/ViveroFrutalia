@@ -40,36 +40,36 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="vivero_frutalia" match-schema="public"/>
-  <table-filter match-name="ventas_planta"/>
-  <table-filter match-name="modificaciones_plantas_compra"/>
-  <table-filter match-name="modificaciones_compras_planta"/>
-  <table-filter match-name="clientes"/>
+  <schema-selection match-catalog="viveroFrutalia" match-schema="public"/>
   <table-filter match-name="modificaciones_ventas_planta"/>
-  <table-filter match-name="servicios"/>
-  <table-filter match-name="modificaciones_planta_venta"/>
-  <table-filter match-name="empleados_servicios"/>
-  <table-filter match-name="plantas_compra"/>
-  <table-filter match-name="empleados"/>
-  <table-filter match-name="mensajes"/>
-  <table-filter match-name="compras_planta"/>
-  <table-filter match-name="etapas"/>
-  <table-filter match-name="proveedores"/>
-  <table-filter match-name="venta_suministros"/>
-  <table-filter match-name="modificaciones_ventas_suministros"/>
   <table-filter match-name="suministros_compra"/>
-  <table-filter match-name="suministros"/>
+  <table-filter match-name="modificaciones_planta_venta"/>
   <table-filter match-name="suministros_venta"/>
-  <table-filter match-name="compra_suministros"/>
+  <table-filter match-name="modificaciones_plantas_compra"/>
   <table-filter match-name="plantas_proveedores"/>
+  <table-filter match-name="clientes"/>
+  <table-filter match-name="suministros"/>
+  <table-filter match-name="motivos_perdidas_planta"/>
   <table-filter match-name="peticion_servicios"/>
-  <table-filter match-name="plantas"/>
+  <table-filter match-name="servicios"/>
   <table-filter match-name="planta_ventas"/>
+  <table-filter match-name="modificaciones_compra_plantas"/>
+  <table-filter match-name="empleados_servicios"/>
+  <table-filter match-name="perdidas_planta"/>
+  <table-filter match-name="plantas"/>
+  <table-filter match-name="empleados"/>
+  <table-filter match-name="modificaciones_compra_suministros"/>
+  <table-filter match-name="plantas_compra"/>
+  <table-filter match-name="venta_suministros"/>
+  <table-filter match-name="compras_planta"/>
+  <table-filter match-name="modificaciones_suministros_compra"/>
+  <table-filter match-name="modificaciones_ventas_suministros"/>
+  <table-filter match-name="mensajes"/>
+  <table-filter match-name="etapas"/>
+  <table-filter match-name="compra_suministros"/>
+  <table-filter match-name="etapas_planta"/>
   <table-filter match-name="tipo_planta"/>
   <table-filter match-name="modificaciones_suministros_venta"/>
-  <table-filter match-name="motivos_perdidas_planta"/>
-  <table-filter match-name="modificacion_compra_suministros"/>
-  <table-filter match-name="perdidas_planta"/>
-  <table-filter match-name="modificaciones_suministros_compra"/>
-  <table-filter match-name="etapas_planta"/>
+  <table-filter match-name="proveedores"/>
+  <table-filter match-name="ventas_planta"/>
 </hibernate-reverse-engineering>

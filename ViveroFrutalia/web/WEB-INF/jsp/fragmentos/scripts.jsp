@@ -8,4 +8,9 @@
 <!DOCTYPE html>
 
 <script src="resources/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="resources/Moment/moment-with-locales.js"></script>
+<script src="resources/css/bootstrap/js/bootstrap.min.js"></script>
+<script src="resources/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="resources/Datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
+<script src="resources/js/jquery.validate.min.js"></script>
 

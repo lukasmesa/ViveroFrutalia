@@ -22,5 +22,9 @@ public class generalController {
     public String registrar(Model model) {
         return "index";
     }
+    @RequestMapping(value = "/nosotros.htm", method = RequestMethod.GET)
+    public String nosotros(Model model) {
+        return "nosotros";
+    }
 
 }

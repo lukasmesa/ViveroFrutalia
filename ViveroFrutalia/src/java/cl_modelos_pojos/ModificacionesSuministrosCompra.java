@@ -1,5 +1,5 @@
 package cl_modelos_pojos;
-// Generated 7/04/2017 03:07:58 PM by Hibernate Tools 4.3.1
+// Generated 21/04/2017 04:49:38 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -21,7 +21,7 @@ public class ModificacionesSuministrosCompra  implements java.io.Serializable {
 
 
      private int id;
-     private Integer idSuministrosCompra;
+     private Integer idComprasPlanta;
      private String campoModificado;
      private String valorCampoModificado;
      private Date fechaModificacion;
@@ -35,9 +35,9 @@ public class ModificacionesSuministrosCompra  implements java.io.Serializable {
         this.campoModificado = campoModificado;
         this.fechaModificacion = fechaModificacion;
     }
-    public ModificacionesSuministrosCompra(int id, Integer idSuministrosCompra, String campoModificado, String valorCampoModificado, Date fechaModificacion) {
+    public ModificacionesSuministrosCompra(int id, Integer idComprasPlanta, String campoModificado, String valorCampoModificado, Date fechaModificacion) {
        this.id = id;
-       this.idSuministrosCompra = idSuministrosCompra;
+       this.idComprasPlanta = idComprasPlanta;
        this.campoModificado = campoModificado;
        this.valorCampoModificado = valorCampoModificado;
        this.fechaModificacion = fechaModificacion;
@@ -56,13 +56,13 @@ public class ModificacionesSuministrosCompra  implements java.io.Serializable {
     }
 
     
-    @Column(name="id_suministrosCompra")
-    public Integer getIdSuministrosCompra() {
-        return this.idSuministrosCompra;
+    @Column(name="id_compras_planta")
+    public Integer getIdComprasPlanta() {
+        return this.idComprasPlanta;
     }
     
-    public void setIdSuministrosCompra(Integer idSuministrosCompra) {
-        this.idSuministrosCompra = idSuministrosCompra;
+    public void setIdComprasPlanta(Integer idComprasPlanta) {
+        this.idComprasPlanta = idComprasPlanta;
     }
 
     

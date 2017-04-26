@@ -54,13 +54,13 @@ public class ClientesDAO {
         return null;
     }
 
-    public void eliminarCliente(int cedula) {
+    public void eliminarCliente(String cedula) {
         List<Clientes> lista = new LinkedList<>();
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
         Transaction t = s.beginTransaction();
         Query q = s.createQuery("delete from Clientes where cedula = :cedula");
-        q.setInteger("cedula", cedula);
+        q.setString("cedula", cedula);
         q.executeUpdate();
         t.commit();
         s.close();
@@ -75,8 +75,8 @@ public class ClientesDAO {
     }
 
     public Clientes actualizarCliente(int cedula, String nombre, String apellido, String telefono, String correo) {
-        
         SessionFactory sf = HibernateUtil.getSessionFactory();
+
         try {
             Session s = sf.openSession();
             Transaction t = s.beginTransaction();

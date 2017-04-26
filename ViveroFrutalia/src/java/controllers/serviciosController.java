@@ -8,7 +8,6 @@ package controllers;
 
 import cd_modelos_dao.ServiciosDAO;
 import cl_modelos_pojos.Servicios;
-import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,9 +55,9 @@ public class serviciosController {
     }
 
     @RequestMapping(value = "/serviciosCRUD_actualizar.htm", method = RequestMethod.POST)
-    public String actualizarServicio(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion, Model model) {
+    public String actualizarServicio(@RequestParam("id") int id, @RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion, @RequestParam("costo") int costo, Model model) {
         ServiciosDAO servicioDAO = new ServiciosDAO();
-        Servicios s = servicioDAO.actualizarServicio(nombre, descripcion);
+        Servicios s = servicioDAO.actualizarServicio(id, nombre, descripcion);
         model.addAttribute("servicio", s);
         return "serviciosDetalle";
 

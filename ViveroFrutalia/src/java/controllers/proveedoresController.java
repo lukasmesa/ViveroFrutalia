@@ -36,8 +36,8 @@ public class proveedoresController {
     }
 
     @RequestMapping(value = "/proveedoresCRUD_consultar.htm", method = RequestMethod.GET)
-    public String consultarproveedorPorCedula(@RequestParam("cedula") String cedula, Model model) {
-        Proveedores s = proveedorDAO.consultarproveedorPorCedula(Integer.parseInt(cedula));
+    public String consultarproveedorPorCedula(@RequestParam("cedula") int cedula, Model model) {
+        Proveedores s = proveedorDAO.consultarproveedorPorCedula(cedula);
         model.addAttribute("proveedor", s);
         return "proveedoresDetalle";
 
@@ -45,7 +45,7 @@ public class proveedoresController {
 
     @RequestMapping(value = "/proveedoresCRUD_eliminar.htm", method = RequestMethod.GET)
     public String eliminarproveedorPorCedula(@RequestParam("cedula") String cedula, Model model) {
-        proveedorDAO.eliminarproveedor(Integer.parseInt(cedula));
+        proveedorDAO.eliminarproveedor((cedula));
         model.addAttribute("proveedores", proveedorDAO.obtenerProveedores());
         return "proveedores";
     }

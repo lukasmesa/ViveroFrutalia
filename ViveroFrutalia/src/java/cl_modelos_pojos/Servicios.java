@@ -1,5 +1,5 @@
 package cl_modelos_pojos;
-// Generated 7/04/2017 03:07:58 PM by Hibernate Tools 4.3.1
+// Generated 21/04/2017 04:49:38 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -30,7 +30,8 @@ public class Servicios  implements java.io.Serializable {
     }
 
 	
-    public Servicios(String nombre, String descripcion) {
+    public Servicios(int id, String nombre, String descripcion) {
+        this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }

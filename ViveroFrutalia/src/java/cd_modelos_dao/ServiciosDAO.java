@@ -24,8 +24,21 @@ public class ServiciosDAO {
 
     }
 
+    public int maxId() {
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session s = sf.openSession();
+        Query q = s.createQuery("select max(id) from Servicios ");
+        List<Servicios> listado = q.list();
+       int res = 0;
+        try {
+           res =  Integer.parseInt(listado.get(0) + "");
+        } catch (Exception e) {
+        }
+        return res;
+    }
+
     public void ingresarServicio(String nombre, String descripcion) {
-        Servicios ser = new Servicios(nombre, descripcion);
+        Servicios ser = new Servicios(0, nombre, descripcion);
         SessionFactory sf = null;
         Transaction t = null;
         Session s = null;
@@ -33,6 +46,7 @@ public class ServiciosDAO {
             sf = HibernateUtil.getSessionFactory();
             s = sf.openSession();
             t = s.beginTransaction();
+            ser.setId(maxId()+1);
             s.save(ser);
             t.commit();
             s.close();
@@ -54,12 +68,13 @@ public class ServiciosDAO {
     }
 
     public void eliminarServicio(int id) {
-        List<Servicios> lista = new LinkedList<>();
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
+        Transaction t = s.beginTransaction();
         Query q = s.createQuery("delete from Servicios where id = :id");
         q.setInteger("id", id);
         q.executeUpdate();
+        t.commit();
         s.close();
 
 //        SessionFactory sf = HibernateUtil.getSessionFactory();
@@ -71,13 +86,14 @@ public class ServiciosDAO {
 //        s.close();
     }
 
-    public Servicios actualizarServicio(String nombre, String descripcion) {
+    public Servicios actualizarServicio(int id, String nombre, String descripcion) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
 
         try {
             Session s = sf.openSession();
             Transaction t = s.beginTransaction();
             Servicios u = new Servicios();
+            u.setId(id);
             u.setNombre(nombre);
             u.setDescripcion(descripcion);
             s.update(u);

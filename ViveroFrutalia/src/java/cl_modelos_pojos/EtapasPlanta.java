@@ -1,5 +1,5 @@
 package cl_modelos_pojos;
-// Generated 7/04/2017 03:07:58 PM by Hibernate Tools 4.3.1
+// Generated 21/04/2017 04:49:38 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -30,7 +30,7 @@ public class EtapasPlanta  implements java.io.Serializable {
      private Plantas plantas;
      private int precioVenta;
      private Integer precioCompra;
-     private Set<PlantaVentas> plantaVentases = new HashSet<PlantaVentas>(0);
+     private Set<PlantasVenta> plantasVentas = new HashSet<PlantasVenta>(0);
      private Set<PlantasCompra> plantasCompras = new HashSet<PlantasCompra>(0);
      private Set<PerdidasPlanta> perdidasPlantas = new HashSet<PerdidasPlanta>(0);
 
@@ -44,13 +44,13 @@ public class EtapasPlanta  implements java.io.Serializable {
         this.plantas = plantas;
         this.precioVenta = precioVenta;
     }
-    public EtapasPlanta(EtapasPlantaId id, Etapas etapas, Plantas plantas, int precioVenta, Integer precioCompra, Set<PlantaVentas> plantaVentases, Set<PlantasCompra> plantasCompras, Set<PerdidasPlanta> perdidasPlantas) {
+    public EtapasPlanta(EtapasPlantaId id, Etapas etapas, Plantas plantas, int precioVenta, Integer precioCompra, Set<PlantasVenta> plantasVentas, Set<PlantasCompra> plantasCompras, Set<PerdidasPlanta> perdidasPlantas) {
        this.id = id;
        this.etapas = etapas;
        this.plantas = plantas;
        this.precioVenta = precioVenta;
        this.precioCompra = precioCompra;
-       this.plantaVentases = plantaVentases;
+       this.plantasVentas = plantasVentas;
        this.plantasCompras = plantasCompras;
        this.perdidasPlantas = perdidasPlantas;
     }
@@ -90,7 +90,7 @@ public class EtapasPlanta  implements java.io.Serializable {
     }
 
     
-    @Column(name="precioVenta", nullable=false)
+    @Column(name="precio_venta", nullable=false)
     public int getPrecioVenta() {
         return this.precioVenta;
     }
@@ -100,7 +100,7 @@ public class EtapasPlanta  implements java.io.Serializable {
     }
 
     
-    @Column(name="precioCompra")
+    @Column(name="precio_compra")
     public Integer getPrecioCompra() {
         return this.precioCompra;
     }
@@ -110,12 +110,12 @@ public class EtapasPlanta  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="etapasPlanta")
-    public Set<PlantaVentas> getPlantaVentases() {
-        return this.plantaVentases;
+    public Set<PlantasVenta> getPlantasVentas() {
+        return this.plantasVentas;
     }
     
-    public void setPlantaVentases(Set<PlantaVentas> plantaVentases) {
-        this.plantaVentases = plantaVentases;
+    public void setPlantasVentas(Set<PlantasVenta> plantasVentas) {
+        this.plantasVentas = plantasVentas;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="etapasPlanta")

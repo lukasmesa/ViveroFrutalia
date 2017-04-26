@@ -30,16 +30,16 @@ public class empleadosController {
     }
 
     @RequestMapping(value = "/empleadosCRUD_consultarTodos.htm", method = RequestMethod.GET)
-    public String consultarEmpleados(Model model) {
+    public String consultarServicios(Model model) {
         EmpleadosDAO empleadoDAO = new EmpleadosDAO();
         model.addAttribute("empleados", empleadoDAO.obtenerEmpleados());
         return "empleados";
     }
 
     @RequestMapping(value = "/empleadosCRUD_consultar.htm", method = RequestMethod.GET)
-    public String consultarempleadoPorCedula(@RequestParam("cedula") String cedula, Model model) {
+    public String consultarempleadoPorCedula(@RequestParam("cedula") int cedula, Model model) {
         EmpleadosDAO empleadoDAO = new EmpleadosDAO();
-        Empleados s = empleadoDAO.consultarEmpleadoPorCedula(Integer.parseInt(cedula));
+        Empleados s = empleadoDAO.consultarEmpleadoPorCedula(cedula);
         model.addAttribute("empleado", s);
         return "empleadosDetalle";
 
@@ -48,9 +48,9 @@ public class empleadosController {
     @RequestMapping(value = "/empleadosCRUD_eliminar.htm", method = RequestMethod.GET)
     public String eliminarempleadoPorCedula(@RequestParam("cedula") String cedula, Model model) {
         EmpleadosDAO empleadoDAO = new EmpleadosDAO();
-        empleadoDAO.eliminarEmpleado(Integer.parseInt(cedula));
+        empleadoDAO.eliminarEmpleado((cedula));
         model.addAttribute("empleados", empleadoDAO.obtenerEmpleados());
-        return "Empleados";
+        return "empleados";
     }
 
     @RequestMapping(value = "/empleadosCRUD_actualizar.htm", method = RequestMethod.POST)

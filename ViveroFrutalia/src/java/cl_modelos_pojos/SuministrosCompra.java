@@ -1,5 +1,5 @@
 package cl_modelos_pojos;
-// Generated 7/04/2017 03:07:58 PM by Hibernate Tools 4.3.1
+// Generated 21/04/2017 04:49:38 AM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -57,7 +57,7 @@ public class SuministrosCompra  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="id_compraSuministros", nullable=false)
+    @JoinColumn(name="id_compra_suministros", nullable=false)
     public CompraSuministros getCompraSuministros() {
         return this.compraSuministros;
     }
