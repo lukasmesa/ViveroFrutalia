@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 7/04/2017 03:08:00 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 21/04/2017 04:49:42 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="cl_modelos_pojos.ModificacionesSuministrosCompra" table="modificaciones_suministros_compra" schema="public" optimistic-lock="version">
         <id name="id" type="int">
             <column name="id" />
             <generator class="assigned" />
         </id>
-        <property name="idSuministrosCompra" type="java.lang.Integer">
-            <column name="id_suministrosCompra" />
+        <property name="idComprasPlanta" type="java.lang.Integer">
+            <column name="id_compras_planta" />
         </property>
         <property name="campoModificado" type="string">
             <column name="campo_modificado" not-null="true" />

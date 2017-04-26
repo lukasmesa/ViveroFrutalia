@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 7/04/2017 03:08:00 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Apr 22, 2017 5:09:36 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="cl_modelos_pojos.Plantas" table="plantas" schema="public" optimistic-lock="version">
+    <class name="cl_modelos_pojos.Plantas" table="plantas" schema="public">
         <id name="id" type="int">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="sequence">
+                <param name="sequence">plantas_id_seq</param>
+            </generator>
         </id>
         <many-to-one name="tipoPlanta" class="cl_modelos_pojos.TipoPlanta" fetch="select">
             <column name="tipo" not-null="true" />

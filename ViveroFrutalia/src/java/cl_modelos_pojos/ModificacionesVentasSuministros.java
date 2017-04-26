@@ -1,5 +1,5 @@
 package cl_modelos_pojos;
-// Generated 7/04/2017 03:07:58 PM by Hibernate Tools 4.3.1
+// Generated 21/04/2017 04:49:38 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -56,7 +56,7 @@ public class ModificacionesVentasSuministros  implements java.io.Serializable {
     }
 
     
-    @Column(name="id_ventaSuministros")
+    @Column(name="id_venta_suministros")
     public Integer getIdVentaSuministros() {
         return this.idVentaSuministros;
     }

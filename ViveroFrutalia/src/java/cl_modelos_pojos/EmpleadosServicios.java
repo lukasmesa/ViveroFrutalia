@@ -1,5 +1,5 @@
 package cl_modelos_pojos;
-// Generated 7/04/2017 03:07:58 PM by Hibernate Tools 4.3.1
+// Generated 21/04/2017 04:49:38 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -47,7 +47,7 @@ public class EmpleadosServicios  implements java.io.Serializable {
     
     @AttributeOverrides( {
         @AttributeOverride(name="empleadoCedula", column=@Column(name="empleado_cedula", nullable=false) ), 
-        @AttributeOverride(name="peticionServiciosId", column=@Column(name="peticionServicios_id", nullable=false) ) } )
+        @AttributeOverride(name="peticionServiciosId", column=@Column(name="peticion_servicios_id", nullable=false) ) } )
     public EmpleadosServiciosId getId() {
         return this.id;
     }
@@ -67,7 +67,7 @@ public class EmpleadosServicios  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="peticionServicios_id", nullable=false, insertable=false, updatable=false)
+    @JoinColumn(name="peticion_servicios_id", nullable=false, insertable=false, updatable=false)
     public PeticionServicios getPeticionServicios() {
         return this.peticionServicios;
     }

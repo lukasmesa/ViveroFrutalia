@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 7/04/2017 03:08:00 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 21/04/2017 04:49:42 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="cl_modelos_pojos.CompraSuministros" table="compra_suministros" schema="public" optimistic-lock="version">
         <id name="id" type="int">
@@ -19,7 +19,7 @@
         </property>
         <set name="suministrosCompras" table="suministros_compra" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="id_compraSuministros" not-null="true" />
+                <column name="id_compra_suministros" not-null="true" />
             </key>
             <one-to-many class="cl_modelos_pojos.SuministrosCompra" />
         </set>

@@ -7,4 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <link href="resources/css/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="resources/Datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<link href="resources/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 <link href="resources/css/general.css" type="text/css" rel="stylesheet">

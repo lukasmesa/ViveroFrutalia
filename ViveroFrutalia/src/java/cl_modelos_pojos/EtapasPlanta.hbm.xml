@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 7/04/2017 03:08:00 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 21/04/2017 04:49:42 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="cl_modelos_pojos.EtapasPlanta" table="etapas_planta" schema="public" optimistic-lock="version">
         <composite-id name="id" class="cl_modelos_pojos.EtapasPlantaId">
@@ -19,17 +19,17 @@
             <column name="plantas_id" not-null="true" />
         </many-to-one>
         <property name="precioVenta" type="int">
-            <column name="precioVenta" not-null="true" />
+            <column name="precio_venta" not-null="true" />
         </property>
         <property name="precioCompra" type="java.lang.Integer">
-            <column name="precioCompra" />
+            <column name="precio_compra" />
         </property>
-        <set name="plantaVentases" table="planta_ventas" inverse="true" lazy="true" fetch="select">
+        <set name="plantasVentas" table="plantas_venta" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="plantas_id" not-null="true" />
                 <column name="etapas_id" not-null="true" />
             </key>
-            <one-to-many class="cl_modelos_pojos.PlantaVentas" />
+            <one-to-many class="cl_modelos_pojos.PlantasVenta" />
         </set>
         <set name="plantasCompras" table="plantas_compra" inverse="true" lazy="true" fetch="select">
             <key>
