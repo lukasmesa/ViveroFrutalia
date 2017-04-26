@@ -25,7 +25,7 @@ public class ClientesDAO {
 
     }
 
-    public void ingresarCliente(String cedula, String nombre, String apellido, String telefono, String correo) {
+    public void ingresarCliente(int cedula, String nombre, String apellido, String telefono, String correo) {
         Clientes ser = new Clientes(cedula, nombre, apellido, telefono, correo);
         SessionFactory sf = null;
         Transaction t = null;
@@ -43,7 +43,7 @@ public class ClientesDAO {
         }
     }
 
-    public Clientes consultarClientePorCedula(String cedula) {
+    public Clientes consultarClientePorCedula(int cedula) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
         Clientes ser = (Clientes) s.get(Clientes.class, cedula);
@@ -54,13 +54,13 @@ public class ClientesDAO {
         return null;
     }
 
-    public void eliminarCliente(String cedula) {
+    public void eliminarCliente(int cedula) {
         List<Clientes> lista = new LinkedList<>();
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
         Transaction t = s.beginTransaction();
         Query q = s.createQuery("delete from Clientes where cedula = :cedula");
-        q.setString("cedula", cedula);
+        q.setInteger("cedula", cedula);
         q.executeUpdate();
         t.commit();
         s.close();
@@ -74,9 +74,9 @@ public class ClientesDAO {
 //        s.close();
     }
 
-    public Clientes actualizarCliente(String cedula, String nombre, String apellido, String telefono, String correo) {
+    public Clientes actualizarCliente(int cedula, String nombre, String apellido, String telefono, String correo) {
+        
         SessionFactory sf = HibernateUtil.getSessionFactory();
-
         try {
             Session s = sf.openSession();
             Transaction t = s.beginTransaction();

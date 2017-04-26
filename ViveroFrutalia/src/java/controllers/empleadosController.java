@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class empleadosController {
 
     @RequestMapping(value = "/empleadosCRUD_registrar.htm", method = RequestMethod.POST)
-    public String registrar(@RequestParam("cedula") String cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, @RequestParam("hoja_vida") String HV, Model model) {
+    public String registrar(@RequestParam("cedula") int cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo, @RequestParam("hoja_vida") String HV, Model model) {
         EmpleadosDAO empleadoDAO = new EmpleadosDAO();
         empleadoDAO.ingresarEmpleado(cedula, nombre, apellido, telefono, correo,HV);
         model.addAttribute("empleados", empleadoDAO.obtenerEmpleados());
@@ -30,7 +30,7 @@ public class empleadosController {
     }
 
     @RequestMapping(value = "/empleadosCRUD_consultarTodos.htm", method = RequestMethod.GET)
-    public String consultarServicios(Model model) {
+    public String consultarEmpleados(Model model) {
         EmpleadosDAO empleadoDAO = new EmpleadosDAO();
         model.addAttribute("empleados", empleadoDAO.obtenerEmpleados());
         return "empleados";
@@ -39,7 +39,7 @@ public class empleadosController {
     @RequestMapping(value = "/empleadosCRUD_consultar.htm", method = RequestMethod.GET)
     public String consultarempleadoPorCedula(@RequestParam("cedula") String cedula, Model model) {
         EmpleadosDAO empleadoDAO = new EmpleadosDAO();
-        Empleados s = empleadoDAO.consultarEmpleadoPorCedula(cedula);
+        Empleados s = empleadoDAO.consultarEmpleadoPorCedula(Integer.parseInt(cedula));
         model.addAttribute("empleado", s);
         return "empleadosDetalle";
 
@@ -48,13 +48,13 @@ public class empleadosController {
     @RequestMapping(value = "/empleadosCRUD_eliminar.htm", method = RequestMethod.GET)
     public String eliminarempleadoPorCedula(@RequestParam("cedula") String cedula, Model model) {
         EmpleadosDAO empleadoDAO = new EmpleadosDAO();
-        empleadoDAO.eliminarEmpleado((cedula));
+        empleadoDAO.eliminarEmpleado(Integer.parseInt(cedula));
         model.addAttribute("empleados", empleadoDAO.obtenerEmpleados());
-        return "empleados";
+        return "Empleados";
     }
 
     @RequestMapping(value = "/empleadosCRUD_actualizar.htm", method = RequestMethod.POST)
-    public String actualizarServicio(@RequestParam("cedula") String cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo,@RequestParam("hoja_vida") String HV, Model model) {
+    public String actualizarServicio(@RequestParam("cedula") int cedula, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("telefono") String telefono, @RequestParam("correo") String correo,@RequestParam("hoja_vida") String HV, Model model) {
         EmpleadosDAO EmpleadoDAO = new EmpleadosDAO();
         Empleados s = EmpleadoDAO.actualizarEmpleado(cedula, nombre, apellido, telefono, correo,HV);
         model.addAttribute("empleado", s);

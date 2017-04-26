@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 7/04/2017 03:08:00 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cl_modelos_pojos.CompraSuministros" table="compra_suministros" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="proveedores" class="cl_modelos_pojos.Proveedores" fetch="select">
+            <column name="proveedores_cedula" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="13" not-null="true" />
+        </property>
+        <property name="nroFactura" type="int">
+            <column name="nro_factura" not-null="true" />
+        </property>
+        <set name="suministrosCompras" table="suministros_compra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_compraSuministros" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.SuministrosCompra" />
+        </set>
+    </class>
+</hibernate-mapping>

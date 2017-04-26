@@ -1,27 +1,45 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 12/03/2017 03:42:57 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 7/04/2017 03:08:00 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="cl_modelos_pojos.Empleados" table="empleados" catalog="frutaliav1" optimistic-lock="version">
-        <id name="cedula" type="string">
-            <column name="cedula" length="15" />
+    <class name="cl_modelos_pojos.Empleados" table="empleados" schema="public" optimistic-lock="version">
+        <id name="cedula" type="int">
+            <column name="cedula" />
             <generator class="assigned" />
         </id>
         <property name="nombre" type="string">
-            <column name="nombre" length="20" not-null="true" />
+            <column name="nombre" not-null="true" />
         </property>
         <property name="apellido" type="string">
-            <column name="apellido" length="30" not-null="true" />
+            <column name="apellido" not-null="true" />
         </property>
         <property name="telefono" type="string">
-            <column name="telefono" length="15" not-null="true" />
+            <column name="telefono" not-null="true" />
         </property>
         <property name="correo" type="string">
-            <column name="correo" length="60" not-null="true" />
+            <column name="correo" not-null="true" />
         </property>
-        <property name="hojaVida" type="string">
-            <column name="hoja_vida" length="120" not-null="true" />
+        <property name="hojaDeVida" type="string">
+            <column name="hojaDeVida" not-null="true" />
         </property>
+        <set name="ventasPlantas" table="ventas_planta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cedula_empleado" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.VentasPlanta" />
+        </set>
+        <set name="ventaSuministroses" table="venta_suministros" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="empleado_cedula" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.VentaSuministros" />
+        </set>
+        <set name="empleadosServicioses" table="empleados_servicios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="empleado_cedula" not-null="true" />
+            </key>
+            <one-to-many class="cl_modelos_pojos.EmpleadosServicios" />
+        </set>
     </class>
 </hibernate-mapping>

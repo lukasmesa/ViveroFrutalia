@@ -24,7 +24,7 @@ public class EmpleadosDAO {
 
     }
 
-    public void ingresarEmpleado(String cedula, String nombre, String apellido, String telefono, String correo, String HV) {
+    public void ingresarEmpleado(int cedula, String nombre, String apellido, String telefono, String correo, String HV) {
         Empleados ser = new Empleados(cedula, nombre, apellido, telefono, correo, HV);
         SessionFactory sf = null;
         Transaction t = null;
@@ -42,7 +42,7 @@ public class EmpleadosDAO {
         }
     }
 
-    public Empleados consultarEmpleadoPorCedula(String cedula) {
+    public Empleados consultarEmpleadoPorCedula(int cedula) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
         Empleados ser = (Empleados) s.get(Empleados.class, cedula);
@@ -53,17 +53,13 @@ public class EmpleadosDAO {
         return null;
     }
 
-    public void eliminarEmpleado(String cedula) {
+    public void eliminarEmpleado(int cedula) {
         List<Empleados> lista = new LinkedList<>();
         SessionFactory sf = HibernateUtil.getSessionFactory();
-        Transaction t = null;
-
         Session s = sf.openSession();
-        t = s.beginTransaction();
         Query q = s.createQuery("delete from Empleados where cedula = :cedula");
-        q.setString("cedula", cedula);
+        q.setInteger("cedula", cedula);
         q.executeUpdate();
-        t.commit();
         s.close();
 
 //        SessionFactory sf = HibernateUtil.getSessionFactory();
@@ -75,7 +71,7 @@ public class EmpleadosDAO {
 //        s.close();
     }
 
-    public Empleados actualizarEmpleado(String cedula, String nombre, String apellido, String telefono, String correo, String HV) {
+    public Empleados actualizarEmpleado(int cedula, String nombre, String apellido, String telefono, String correo, String HV) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
 
         try {
@@ -97,11 +93,8 @@ public class EmpleadosDAO {
         List<Empleados> lista = new LinkedList<>();
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
-        Transaction t = null;
-        t = s.beginTransaction();
         Query q = s.createQuery("from Empleados");
         lista = q.list();
-        t.commit();
         s.close();
 
         return lista;

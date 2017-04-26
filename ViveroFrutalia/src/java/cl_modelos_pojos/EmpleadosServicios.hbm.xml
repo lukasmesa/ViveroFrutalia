@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 7/04/2017 03:08:00 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cl_modelos_pojos.EmpleadosServicios" table="empleados_servicios" schema="public" optimistic-lock="version">
+        <composite-id name="id" class="cl_modelos_pojos.EmpleadosServiciosId">
+            <key-property name="empleadoCedula" type="int">
+                <column name="empleado_cedula" />
+            </key-property>
+            <key-property name="peticionServiciosId" type="int">
+                <column name="peticionServicios_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="empleados" class="cl_modelos_pojos.Empleados" update="false" insert="false" fetch="select">
+            <column name="empleado_cedula" not-null="true" />
+        </many-to-one>
+        <many-to-one name="peticionServicios" class="cl_modelos_pojos.PeticionServicios" update="false" insert="false" fetch="select">
+            <column name="peticionServicios_id" not-null="true" />
+        </many-to-one>
+        <property name="fechaInicio" type="date">
+            <column name="fecha_inicio" length="13" not-null="true" />
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="fecha_fin" length="13" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

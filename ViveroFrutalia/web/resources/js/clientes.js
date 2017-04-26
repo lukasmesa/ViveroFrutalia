@@ -10,7 +10,7 @@ function editarCliente(id) {
 function redimensionar(i, ii, j) {
     document.getElementById("panelEdicion").setAttribute("style", " visibility: visible ");
     document.getElementById("panelVista").setAttribute("class", " col-xs-" + i + " col-xs-offset-" + ii);
-    //document.getElementById("panelEdicion").setAttribute("class", " col-xs-" + j);
+    document.getElementById("panelEdicion").setAttribute("class", " col-xs-" + j);
 }
 function agregarCliente() {
     

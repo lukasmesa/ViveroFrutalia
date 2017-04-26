@@ -50,10 +50,7 @@
                             <form class = "col-xs-12" action="serviciosCRUD_actualizar.htm" method="post">
                                 <div class="form-group frm col-xs-12">
                                     <div class="col-xs-3">
-                                        <label class="control-label">Id</label>
-                                    </div>
-                                    <div class="col-xs-2">
-                                        <input type="text" class="form-control" value="<%= s.getId()%>" name="id" id="id">
+                                        <label class="control-label">Id: <%= s.getId()%></label>
                                     </div>
                                 </div>
 
@@ -71,14 +68,6 @@
                                     </div>
                                     <div class="col-xs-9">
                                         <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Descripción"><%=s.getDescripcion()%></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group frm col-xs-12">
-                                    <div class="col-xs-3">
-                                        <label class="control-label col-xs-3">Costo</label>
-                                    </div>
-                                    <div class="col-xs-9">
-                                        <input type="text" class="form-control" value="<%=s.getCosto()%>" name="costo" id="costo">
                                     </div>
                                 </div>
 

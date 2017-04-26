@@ -23,9 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class serviciosController {
 
     @RequestMapping(value = "/serviciosCRUD_registrar.htm", method = RequestMethod.POST)
-    public String registrar(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion, @RequestParam("costo") int costo, Model model) {
+    public String registrar(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion, Model model) {
         ServiciosDAO servicioDAO = new ServiciosDAO();
-        servicioDAO.ingresarServicio(nombre, descripcion, costo);
+        servicioDAO.ingresarServicio(nombre, descripcion);
         model.addAttribute("servicios", servicioDAO.obtenerServicios());
         return "servicios";
     }
@@ -56,9 +56,9 @@ public class serviciosController {
     }
 
     @RequestMapping(value = "/serviciosCRUD_actualizar.htm", method = RequestMethod.POST)
-    public String actualizarServicio(@RequestParam("id") int id, @RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion, @RequestParam("costo") int costo, Model model) {
+    public String actualizarServicio(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion, Model model) {
         ServiciosDAO servicioDAO = new ServiciosDAO();
-        Servicios s = servicioDAO.actualizarServicio(id, nombre, descripcion, costo);
+        Servicios s = servicioDAO.actualizarServicio(nombre, descripcion);
         model.addAttribute("servicio", s);
         return "serviciosDetalle";
 
