@@ -45,7 +45,7 @@ public class PlantasDAO {
             s.save(planta);
             t.commit();
             s.close();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.getMessage());
             t.rollback();
             throw new RuntimeException("No se pudo guardar la planta");

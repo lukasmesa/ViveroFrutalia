@@ -72,4 +72,5 @@ Contributor(s):
   <table-filter match-name="modificaciones_suministros_venta"/>
   <table-filter match-name="proveedores"/>
   <table-filter match-name="ventas_planta"/>
+  <table-filter match-name="usuario"/>
 </hibernate-reverse-engineering>

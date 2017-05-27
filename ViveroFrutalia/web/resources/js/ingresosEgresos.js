@@ -7,6 +7,25 @@
 var idUser = "";
 
 $(document).ready(function () {
+    
+    $("#btnCerrarSesion").on("click", function (){
+        if (localStorage.usuario !== undefined) {
+            localStorage.removeItem("usuario");            
+        } else{
+            console.log("LocalStorage es " + localStorage.usuario);
+        }
+        window.location = "index.htm";
+    });
+
+    console.log(localStorage.usuario);
+
+    if (localStorage.usuario !== undefined) {
+        $("#dropCerrar").append("Sesion iniciada como " + localStorage.usuario + "<span class='glyphicon glyphicon-log-out'></span>");        
+        $("#aside").attr('style', "background-color:#333333");
+        $("#aside").show();
+    } else {
+        console.log("error " + localStorage.usuario);
+    }
 
     
     $("#divFechaInicial").datetimepicker({

@@ -7,8 +7,10 @@
 package controllers;
 
 import Extras.JJSON;
+import Modelos.Reporte;
 import cd_modelos_dao.ClientesDAO;
 import cd_modelos_dao.PlantasDAO;
+import cd_modelos_dao.ReportesDePlantasDAO;
 import cl_modelos_pojos.Clientes;
 import cl_modelos_pojos.Plantas;
 import cl_modelos_pojos.TipoPlanta;
@@ -28,7 +30,7 @@ public class plantasController {
     
     @RequestMapping(value = "/registrar_planta.htm", method = RequestMethod.POST)
     public @ResponseBody
-    String registrarPlanta(@RequestParam("nombre") String nombre, @RequestParam("tipo") int tipo, @RequestParam("descripcion") String descripcion, @RequestParam("imagen") String imagen) {
+    String registrarPlanta(@RequestParam("nombre") String nombre, @RequestParam("tipo") int tipo, @RequestParam("descripcion") String descripcion, @RequestParam("imagen") String imagen, Model model) {
         PlantasDAO plantaDAO = new PlantasDAO();
         TipoPlanta tipoP = new TipoPlanta();
         tipoP.setId(tipo);
@@ -100,6 +102,29 @@ public class plantasController {
         JJSON convertidor = new JJSON();        
         //return plantaDAO == null ? "nulo" : plantaDAO.consultarVentaPorId(id).toString();
         return convertidor.mapaEgresosPlanta(plantaDAO.consultarEgresosPlanta(id));
+    }
+        
+    @RequestMapping(value = "/reportesDePlantas.htm", method = RequestMethod.GET)
+    public String consultarReportesDePlantas(@RequestParam("tipo") String tipo, @RequestParam("pm") String pm, @RequestParam("px") String px, Model model) {
+        ReportesDePlantasDAO repDAO = new ReportesDePlantasDAO();
+
+        Reporte obj;
+        switch (tipo) {
+            case "0":   //TODOS
+                obj = repDAO.consultarTodos("select etapasPlanta from PlantasVenta","from Suministros");
+                model.addAttribute("reportesDePlantas", obj);
+                break;
+            case "1":   //PLANTAS
+                obj = repDAO.consultarPlantas("select etapasPlanta from PlantasVenta");
+                model.addAttribute("reportesDePlantas", obj);
+                break;
+            case "2":   //SUMINISTROS
+                obj = repDAO.consultarSuministros("from Suministros");
+                model.addAttribute("reportesDePlantas", obj);
+                break;
+        }
+
+        return "reportesDePlantas";
     }
 
 }

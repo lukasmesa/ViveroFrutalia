@@ -2,6 +2,33 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/nosotros.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/fragmentos/menuLateral.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/fragmentos/header.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/fragmentos/footer.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/src/java/Extras/JJSON.java</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/src/java/controllers/plantasController.java</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/reportesDePlantasAdmin.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/src/java/controllers/MensajesController.java</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/src/java/hibernate.cfg.xml</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/src/java/cl_modelos_pojos/Suministros.hbm.xml</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/src/java/cd_modelos_dao/PlantasDAO.java</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/resources/js/usuario.js</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/src/java/cd_modelos_dao/ReportesDePlantasDAO.java</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/resources/js/reportesDePlantas.js</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/revisarMensajes.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/enviarMensajes.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/fragmentos/headerAdmin.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/resources/js/nosotros.js</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/nosotrosAdmin.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/indexAdmin.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/resources/css/general.css</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/resources/js/mensaje.js</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/adminPlantas.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/WEB-INF/jsp/reportesDePlantas.jsp</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/src/java/cd_modelos_dao/HibernateUtil.java</file>
+            <file>file:/D:/Lukas/Documentos/NetBeansProjects/ViveroFrutalia/web/resources/js/indexAdmin.js</file>
+        </group>
     </open-files>
 </project-private>

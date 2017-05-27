@@ -18,10 +18,10 @@
             <column name="visibilidad" not-null="true" />
         </property>
         <property name="precioVenta" type="java.lang.Integer">
-            <column name="precioVenta" />
+            <column name="precio_venta" />
         </property>
         <property name="precioCompra" type="java.lang.Integer">
-            <column name="precioCompra" />
+            <column name="precio_compra" />
         </property>
         <set name="suministrosVentas" table="suministros_venta" inverse="true" lazy="true" fetch="select">
             <key>

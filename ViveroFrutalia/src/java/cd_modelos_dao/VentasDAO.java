@@ -15,11 +15,9 @@ import cl_modelos_pojos.ModificacionesVentasPlanta;
 import cl_modelos_pojos.Plantas;
 import cl_modelos_pojos.VentasPlanta;
 import cl_modelos_pojos.PlantasVenta;
-import controllers.ventasController;
 import java.time.Instant;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
@@ -27,12 +25,8 @@ import org.hibernate.Transaction;
 import org.hibernate.Query;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
-import org.dom4j.rule.pattern.DefaultPattern;
 import org.hibernate.HibernateException;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -146,7 +140,7 @@ public class VentasDAO {
                 pv.setVentasPlanta(venta);
                 venta.getPlantasVentas().add(pv);
             }
-        } catch (Exception e) {
+        } catch (NumberFormatException | JSONException e) {
             System.out.println("Exception");
             System.out.println(e);
         }
@@ -186,7 +180,7 @@ public class VentasDAO {
                 }
             }
 
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             t.rollback();
             throw new RuntimeException("No se pudo guardar el servicio");
         }
@@ -264,7 +258,7 @@ public class VentasDAO {
             System.out.println("Paso algo 1");
 
             System.out.println(he);
-            he.printStackTrace();
+            he.getMessage();
         }
     }
 
@@ -366,7 +360,7 @@ public class VentasDAO {
             }
             t.commit();
             s.close();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             t.rollback();
             System.out.print("No se pudo guardar la venta planta");
             System.out.println(e);
@@ -388,7 +382,7 @@ public class VentasDAO {
             }
             t.commit();
             s.close();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             t.rollback();
             System.out.println("No se pudo guardar la plnanta venta");
             System.out.println(e);

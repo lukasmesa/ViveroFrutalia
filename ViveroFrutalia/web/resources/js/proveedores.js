@@ -4,8 +4,30 @@
  * and open the template in the editor.
  */
 
+$(function () {
+
+    $("#btnCerrarSesion").on("click", function () {
+        if (localStorage.usuario !== undefined) {
+            localStorage.removeItem("usuario");
+        } else {
+            console.log("LocalStorage es " + localStorage.usuario);
+        }
+        window.location = "index.htm";
+    });
+
+    console.log(localStorage.usuario);
+
+    if (localStorage.usuario !== undefined) {
+        $("#dropCerrar").append("Sesion iniciada como " + localStorage.usuario + "<span class='glyphicon glyphicon-log-out'></span>");
+        $("#aside").attr('style', "background-color:#333333");
+        $("#aside").show();
+    } else {
+        console.log("error " + localStorage.usuario);
+    }
+});
+
 function editarProveedor(id) {
-    window.location = "proveedoresCRUD_consultar.htm?cedula="+id;
+    window.location = "proveedoresCRUD_consultar.htm?cedula=" + id;
 }
 function redimensionar(i, ii, j) {
     document.getElementById("panelEdicion").setAttribute("style", " visibility: visible ");
@@ -13,7 +35,7 @@ function redimensionar(i, ii, j) {
     document.getElementById("panelEdicion").setAttribute("class", " col-xs-offset-2 col-xs-" + j);
 }
 function agregarProveedor() {
-    
+
     $("#cedula").val = "";
     $("#nombre").val = "";
     $("#apellido").val = "";
@@ -21,8 +43,8 @@ function agregarProveedor() {
     $("#correo").val = "";
     redimensionar(10, 1, 8);
 }
-function eliminarProveedor(id){
-        window.location = "proveedoresCRUD_eliminar.htm?cedula="+id;
+function eliminarProveedor(id) {
+    window.location = "proveedoresCRUD_eliminar.htm?cedula=" + id;
 }
 
 function redirigir() {

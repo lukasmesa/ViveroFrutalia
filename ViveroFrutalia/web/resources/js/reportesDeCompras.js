@@ -76,7 +76,8 @@ function habilitarFecha() {
     filtrarDetalleYProveedor();
 }
 
-$(document).ready(function () {
+$(function () {
+    
     if (localStorage.getItem("checkboxDetalle1") === "true") {
         $("#checkboxDetalle1").prop("checked", true);
     }

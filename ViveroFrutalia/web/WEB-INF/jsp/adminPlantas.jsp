@@ -20,9 +20,9 @@
     <body>
 
         <header class="col-xs-12 col-xs" >
-            <jsp:include page="fragmentos/header.jsp" />
+            <jsp:include page="fragmentos/headerAdmin.jsp" />
         </header>
-        <aside class="col-xs-2 col-xs">
+        <aside id="aside" class="col-xs-2 col-xs">
             <jsp:include page="fragmentos/menuLateral.jsp" />
         </aside>
         <div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="modalRegistro">
@@ -62,7 +62,7 @@
                                 <div class="col-sm-offset-1 row col-sm-10">                                
                                     <div class="text-center">
                                         <label class="control-label">Imagen</label>
-                                        <input type="file" name="fileuploadReg" class="fileupload form-control text-center" id="fileuploadReg" name="files[]"  multiple>
+                                        <input type="file" name="fileuploadReg" class="fileupload form-control text-center" id="fileuploadReg" >
                                     </div>
                                 </div>
                             </div>

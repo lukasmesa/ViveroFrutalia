@@ -36,7 +36,7 @@ public class ProveedoresDAO {
             s.save(ser);
             t.commit();
             s.close();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             t.rollback();
             throw new RuntimeException("No se pudo guardar el servicio");
         }
@@ -85,7 +85,7 @@ public class ProveedoresDAO {
             s.close();
             return u;
         } catch (HibernateException he) {
-            he.printStackTrace();
+            he.getMessage();
         }
 
         return null;

@@ -5,15 +5,11 @@
  */
 package cd_modelos_dao;
 
-import cl_modelos_pojos.Clientes;
 import cl_modelos_pojos.Etapas;
-import cl_modelos_pojos.Plantas;
 import java.util.LinkedList;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.Query;
-import org.hibernate.HibernateException;
 import java.util.List;
 
 /**

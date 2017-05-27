@@ -14,7 +14,6 @@ import cl_modelos_pojos.Plantas;
 import cl_modelos_pojos.ComprasPlanta;
 import cl_modelos_pojos.PlantasCompra;
 import cl_modelos_pojos.Proveedores;
-import controllers.comprasController;
 import java.time.Instant;
 import java.util.Date;
 import java.util.HashSet;
@@ -59,7 +58,7 @@ public class ComprasDAO {
         int res = 0;
         try {
             res = Integer.parseInt(listado.get(0) + "");
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
         }
         return res;
     }
@@ -141,7 +140,7 @@ public class ComprasDAO {
                 pv.setComprasPlanta(compra);
                 compra.getPlantasCompras().add(pv);
             }
-        } catch (Exception e) {
+        } catch (NumberFormatException | JSONException e) {
             System.out.println("Exception");
             System.out.println(e);
         }

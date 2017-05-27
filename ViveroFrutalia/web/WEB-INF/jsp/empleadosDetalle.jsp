@@ -17,7 +17,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome to Spring Web MVC project</title>
+        <title>Empleados</title>
         <jsp:include page="fragmentos/links.jsp" />
         <jsp:include page="fragmentos/scripts.jsp" />
         <script src="resources/js/empleados.js" type="text/javascript"></script>
@@ -28,10 +28,10 @@
     <body>
 
         <header class="col-xs-12 col-xs" >
-            <jsp:include page="fragmentos/header.jsp" />
+            <jsp:include page="fragmentos/headerAdmin.jsp" />
         </header>
         <div class="col-xs-12 col-xs">
-            <aside class="col-xs-2 col-xs">
+            <aside id="aside" class="col-xs-2 col-xs">
                 <jsp:include page="fragmentos/menuLateral.jsp" />
             </aside>
             <div class="col-xs-10">

@@ -5,9 +5,7 @@
  */
 package cd_modelos_dao;
 
-import cl_modelos_pojos.EtapasPlanta;
 import cl_modelos_pojos.PlantasCompra;
-import java.util.LinkedList;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -33,7 +31,8 @@ public class PlantasCompraDAO {
         int res = 0;
         try {
            res =  Integer.parseInt(listado.get(0) + "");
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
+            e.getMessage();
         }
         return res;
     }
@@ -49,7 +48,8 @@ public class PlantasCompraDAO {
             s.saveOrUpdate(ep);
             t.commit();
             s.close();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
+            e.getMessage();
             System.out.println("plantas compras dao");
             System.out.println(e);
         }
