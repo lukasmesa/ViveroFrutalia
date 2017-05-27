@@ -74,6 +74,7 @@ Contributor(s):
     <mapping resource="cl_modelos_pojos/ModificacionesPlantaVenta.hbm.xml"/>
     <mapping resource="cl_modelos_pojos/ModificacionesVentasPlanta.hbm.xml"/>
     <mapping resource="cl_modelos_pojos/Servicios.hbm.xml"/>
+    <mapping resource="cl_modelos_pojos/Usuario.hbm.xml"/>
     <mapping resource="cl_modelos_pojos/PerdidasPlanta.hbm.xml"/>
     <mapping resource="cl_modelos_pojos/PlantasCompra.hbm.xml"/>
     <mapping resource="cl_modelos_pojos/PeticionServicios.hbm.xml"/>

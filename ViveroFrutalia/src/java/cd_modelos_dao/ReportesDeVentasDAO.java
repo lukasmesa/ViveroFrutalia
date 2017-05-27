@@ -7,29 +7,20 @@ package cd_modelos_dao;
 
 import Modelos.Venta;
 import Modelos.VentasProveedores;
-import cl_modelos_pojos.Clientes;
-import cl_modelos_pojos.CompraSuministros;
-import cl_modelos_pojos.ComprasPlanta;
 import cl_modelos_pojos.Etapas;
 import cl_modelos_pojos.EtapasPlanta;
 import cl_modelos_pojos.EtapasPlantaId;
 import cl_modelos_pojos.Plantas;
-import cl_modelos_pojos.PlantasCompra;
 import cl_modelos_pojos.PlantasVenta;
-import cl_modelos_pojos.Proveedores;
-import cl_modelos_pojos.Suministros;
-import cl_modelos_pojos.SuministrosCompra;
 import cl_modelos_pojos.SuministrosVenta;
 import cl_modelos_pojos.VentaSuministros;
 import cl_modelos_pojos.VentasPlanta;
-import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.Query;
 import org.hibernate.HibernateException;
 import java.util.List;
@@ -176,7 +167,7 @@ public class ReportesDeVentasDAO {
 
             
             return lista;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e);
         }
         return null;
@@ -190,7 +181,7 @@ public class ReportesDeVentasDAO {
             fechaEnviar = formatoDelTexto.parse(fecha);
             return fechaEnviar;
         } catch (ParseException ex) {
-            ex.printStackTrace();
+            ex.getMessage();
             return null;
         }
     }

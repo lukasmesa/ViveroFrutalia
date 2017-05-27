@@ -9,7 +9,6 @@ package controllers;
 import Extras.JJSON;
 import cd_modelos_dao.ClientesDAO;
 import cl_modelos_pojos.Clientes;
-import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

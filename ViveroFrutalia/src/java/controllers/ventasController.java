@@ -8,11 +8,6 @@ package controllers;
 
 import cd_modelos_dao.VentasDAO;
 import cl_modelos_pojos.VentasPlanta;
-import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

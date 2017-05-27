@@ -14,6 +14,10 @@ body{
     font-size: 15px;
     color: #3a2127;
     overflow-y: scroll;}
+.navbar{
+    background-color: #53a726;
+}
+
 #cabecera {
     background-color: #53a726;
     height: 50px;
@@ -32,11 +36,9 @@ body{
 }
 li{list-style: none;}
 
-aside, aside nav{background-color: #333333; ;}
-
 .col-xs{padding: 0px;}
 
-aside nav{height: 600px;}
+aside nav{height: 597px;}
 
 a{text-decoration: none;}
 
@@ -97,6 +99,11 @@ footer {
     background-color: white;
         border: 2px solid #53a726;
 
+}
+
+#dropdown-login{
+    height: 110%;
+    width: 92%;
 }
 
 /*Css para cargar archivo*/

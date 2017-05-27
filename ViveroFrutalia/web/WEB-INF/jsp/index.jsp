@@ -12,12 +12,12 @@
         <jsp:include page="fragmentos/scripts.jsp" />
     </head>
     <body>
-    <header class="col-xs-12 col-xs" >
+    <header id="header" class="col-xs-12 col-xs" >
         <jsp:include page="fragmentos/header.jsp" />
     </header>
     <div class="col-xs-12 col-xs">
-        <aside class="col-xs-2 col-xs">
-            <jsp:include page="fragmentos/menuLateral.jsp" />
+        <aside id="aside" class="col-xs-2 col-xs">
+            
         </aside>
         <div class="col-xs-10">
             <br>

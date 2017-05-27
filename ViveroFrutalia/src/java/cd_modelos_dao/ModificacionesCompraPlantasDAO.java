@@ -31,7 +31,8 @@ public class ModificacionesCompraPlantasDAO {
         int res = 0;
         try {
            res =  Integer.parseInt(listado.get(0) + "");
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
+            e.getMessage();
         }
         return res;
     }

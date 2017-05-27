@@ -5,39 +5,56 @@ var imagenPlanta;
 var tipoPlanta;
 var descripcionPlanta;
 var nombrePlanta;
-
 $(function () {
 
-    /*validatorEdit = $("#formEdicion").validate({
+    
+    $("#btnCerrarSesion").on("click", function (){
+        if (localStorage.usuario !== undefined) {
+            localStorage.removeItem("usuario");            
+        } else{
+            console.log("LocalStorage es " + localStorage.usuario);
+        }
+        window.location = "index.htm";
+    });
+
+    console.log(localStorage.usuario);
+
+    if (localStorage.usuario !== undefined) {
+        $("#dropCerrar").append("Sesion iniciada como " + localStorage.usuario + "<span class='glyphicon glyphicon-log-out'></span>");        
+        $("#aside").attr('style', "background-color:#333333");
+        $("#aside").show();
+    } else {
+        console.log("error " + localStorage.usuario);
+    }
+
+    validatorEdit = $("#fromEdicion").validate({
         rules: {
             txtNombreEdit: "required",
             txtTipoEdit: "required",
             txtDescripcionEdit: "required"
         },
         messages: {
-            txtNombreReg: "Nombre no puede ser vacío",
-            txtTipoReg: "Apellido no puede ser vacío",
-            txtDescripcionReg: "La Descripción es obligatoria"
+            txtNombreEdit: "EL nombre no puede ser vacío",
+            txtTipoEdit: "El tipo no puede ser vacío",
+            txtDescripcionEdit: "La Descripción es obligatoria"
         }
-    });*/
-
+    });
+    
     validatorReg = $("#formRegistro").validate({
         rules: {
             txtNombreReg: "required",
             txtTipoReg: "required",
             txtDescripcionReg: "required",
-            fileupload: "required"
-
+            fileuploadReg: "required"
         },
         messages: {
-            txtNombreReg: "Nombre no puede ser vacío",
-            txtTipoReg: "Apellido no puede ser vacío",
+            txtNombreReg: "EL nombre no puede ser vacío",
+            txtTipoReg: "El tipo no puede ser vacío",
             txtDescripcionReg: "La Descripción es obligatoria",
-            fileupload: "Debe elegir una imagen"
+            fileuploadReg: "Debe elegir una imagen"
         }
     });
-
-    console.log(validatorReg);
+    //console.log(validatorReg);
     //console.log(validatorEdit);
 //Función limpiar datos del registro con el botón de cancelar
     $("#btnCancelarRegistro").click(function () {
@@ -63,7 +80,6 @@ $(function () {
     $("#cerrarModalFoto").click(function () {
         limpiarCamposImagen()();
     });
-
     cargarTabla();
     $('#modalEdicion').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
@@ -81,24 +97,22 @@ $(function () {
         modal.find("#txtTipoEdit").val(td_tipo);
         modal.find("#txtDescripcionEdit").val(td_descripcion);
     });
-    $("#formRegistro").on("submit", function (e) {
+    
+    
+    $("#btnRegistro").on("click", function (e) {
         e.preventDefault();
         if ($("#formRegistro").valid()) {
             var nombre = $("#txtNombreReg").val().trim();
             var tipo = $("#txtTipoReg").val().trim();
             var descripcion = $("#txtDescripcionReg").val().trim();
-            var imagen = $("#fileuploadReg").val();
-            imagen = imagen.substring(12);
+            var imagen = $("#fileuploadReg").val().trim();
+            var imagen = imagen.substring(12);
             console.log("Nombre: " + nombre + "\nTipo: " + tipo + "\nDescripcion: " + descripcion + "\nImagen: " + imagen);
-            $.ajax({
-                type: "post",
+            /*var data = JSON.stringify({nombre: nombre,tipo: tipo,descripcion: descripcion, imagen: imagen});
+             console.log("data: "+ data)*/
+            $.post({
                 url: "registrar_planta.htm",
-                data: {
-                    nombre: nombre,
-                    tipo: tipo,
-                    descripcion: descripcion,
-                    imagen: imagen
-                },
+                data: {nombre: nombre, tipo: tipo, descripcion: descripcion, imagen: imagen},
                 success: function (respuesta) {
                     console.log(respuesta);
                     $("#formRegistro").trigger("reset");
@@ -109,11 +123,8 @@ $(function () {
             });
         }
     });
-
-    $("#fromEdicion").on("submit", function (e) {
+    $("#btnEdicion").on("click", function (e) {
         e.preventDefault();
-        console.log(validatorEdit);
-        console.log($("#fromEdicion").valid());
         if ($("#fromEdicion").valid()) {
             var id = idPlanta.substring(10);
             console.log(idPlanta + " - id: " + id);
@@ -145,7 +156,6 @@ $(function () {
             });
         }
     });
-
     $('#modalFoto').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         idPlanta = button.attr("id");
@@ -157,14 +167,13 @@ $(function () {
         console.log(tipoPlanta);
         console.log(descripcionPlanta);
     });
-
     $("#actualizarImagen").on("click", function () {
         var id = idPlanta.substring(13);
         console.log(idPlanta + " - id: " + id);
         var nombre = nombrePlanta.trim();
         var tipo = tipoPlanta.trim();
         var descripcion = descripcionPlanta.trim();
-        var imagen = $("#fileuploadCambioImagen").val();     
+        var imagen = $("#fileuploadCambioImagen").val();
         imagen = imagen.substring(12);
         console.log("Nombre: " + nombre + "\nTipo: " + tipo + "\nDescripcion: " + descripcion + "\nImagen: " + imagen);
         $.ajax({
@@ -189,9 +198,6 @@ $(function () {
             }
         });
     });
-
-
-
     $("#tabla").on("click", ".btnEliminar", function () {
         var id = $(this).attr("id");
         id = id.substring(12);
@@ -209,7 +215,6 @@ $(function () {
             }
         });
     });
-
 });
 function cargarTabla() {
     $.get("plantas_consultarTodosJS.htm", {}, function (respuesta) {

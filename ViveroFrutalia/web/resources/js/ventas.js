@@ -7,6 +7,7 @@ var clientes;
 var contadorNuevos = 0;
 var lineas = new Array();
 
+
 function editarVenta(id) {
     window.location = "ventas_consultar.htm?id=" + id;
 }
@@ -142,7 +143,7 @@ function registrarVenta() {
     var data = {
         cliente: $("#nombreCliente").val(),
         empleado: $("#nombreEmpleado").val(),
-        fecha: $("#fecha").val().replace("-","/").replace("-","/"),
+        fecha: $("#fecha").val().replace("-", "/").replace("-", "/"),
         factura: $("#factura").val()
     };
     var lines = new Array();

@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 
-
-
 function consultarEtapas() {
 
     $.get("etapas_consultarTodosJS.htm", {}, function (respuesta) {

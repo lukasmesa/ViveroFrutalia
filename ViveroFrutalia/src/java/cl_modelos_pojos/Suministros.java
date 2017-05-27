@@ -40,6 +40,15 @@ public class Suministros  implements java.io.Serializable {
         this.descripcion = descripcion;
         this.visibilidad = visibilidad;
     }
+    
+    public Suministros(int id, String nombre, String descripcion, int visibilidad, Integer precioVenta, Integer precioCompra) {
+       this.id = id;
+       this.nombre = nombre;
+       this.descripcion = descripcion;
+       this.visibilidad = visibilidad;
+       this.precioVenta = precioVenta;
+       this.precioCompra = precioCompra;
+    }
     public Suministros(int id, String nombre, String descripcion, int visibilidad, Integer precioVenta, Integer precioCompra, Set<SuministrosVenta> suministrosVentas, Set<SuministrosCompra> suministrosCompras) {
        this.id = id;
        this.nombre = nombre;

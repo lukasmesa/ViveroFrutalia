@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Catálogo De Plantas</title>        
+        <title>Flujo De Caja</title>        
         <jsp:include page="fragmentos/links.jsp" />
         <jsp:include page="fragmentos/scripts.jsp" />
         <script src="resources/js/ingresosEgresos.js"></script>
@@ -20,9 +20,9 @@
     <body>
 
         <header class="col-xs-12 col-xs" >
-            <jsp:include page="fragmentos/header.jsp" />
+            <jsp:include page="fragmentos/headerAdmin.jsp" />
         </header>
-        <aside class="col-xs-2 col-xs">
+        <aside id="aside" class="col-xs-2 col-xs">
             <jsp:include page="fragmentos/menuLateral.jsp" />
         </aside>
 

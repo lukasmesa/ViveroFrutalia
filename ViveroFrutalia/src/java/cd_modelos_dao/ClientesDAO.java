@@ -6,7 +6,6 @@
 package cd_modelos_dao;
 
 import cl_modelos_pojos.Clientes;
-import java.sql.Connection;
 import java.util.LinkedList;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;

@@ -6,12 +6,9 @@
 package cd_modelos_dao;
 
 import cl_modelos_pojos.PlantasVenta;
-import java.util.LinkedList;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.Query;
-import org.hibernate.HibernateException;
 import java.util.List;
 
 /**
@@ -32,11 +29,10 @@ public class ModificacionesPlantasVentaDAO {
         int res = 0;
         try {
            res =  Integer.parseInt(listado.get(0) + "");
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
+            e.getMessage();
         }
         return res;
     }
-
-
     
 }

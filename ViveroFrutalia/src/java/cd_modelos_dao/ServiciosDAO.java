@@ -32,7 +32,7 @@ public class ServiciosDAO {
        int res = 0;
         try {
            res =  Integer.parseInt(listado.get(0) + "");
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
         }
         return res;
     }
@@ -50,7 +50,7 @@ public class ServiciosDAO {
             s.save(ser);
             t.commit();
             s.close();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             t.rollback();
             throw new RuntimeException("No se pudo guardar el servicio");
         }
@@ -101,7 +101,7 @@ public class ServiciosDAO {
             s.close();
             return u;
         } catch (HibernateException he) {
-            he.printStackTrace();
+            he.getMessage();
         }
 
         return null;
@@ -116,8 +116,8 @@ public class ServiciosDAO {
             Query q = s.createQuery("from Servicios");
             lista = q.list();
             s.close();
-        } catch (Exception e) {
-            System.out.println(e + "_______________--");
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage() + "_______________--");
         }
 
         return lista;

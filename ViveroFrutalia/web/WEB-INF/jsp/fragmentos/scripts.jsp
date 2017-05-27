@@ -13,4 +13,6 @@
 <script src="resources/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="resources/Datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
 <script src="resources/js/jquery.validate.min.js"></script>
+<script src="resources/js/usuario.js"></script>
+
 

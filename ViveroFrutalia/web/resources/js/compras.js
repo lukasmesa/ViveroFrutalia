@@ -7,6 +7,7 @@ var clientes;
 var contadorNuevos = 0;
 var lineas = new Array();
 
+
 function editarCompra(id) {
     window.location = "compras_consultar.htm?id=" + id;
 }

@@ -165,7 +165,7 @@ public class ReportesDeComprasDAO {
             fechaEnviar = formatoDelTexto.parse(fecha);
             return fechaEnviar;
         } catch (ParseException ex) {
-            ex.printStackTrace();
+            ex.getMessage();
             return null;
         }
     }

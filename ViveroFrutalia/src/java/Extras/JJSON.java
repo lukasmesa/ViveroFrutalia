@@ -3,10 +3,10 @@ package Extras;
 import cl_modelos_pojos.Clientes;
 import cl_modelos_pojos.ComprasPlanta;
 import cl_modelos_pojos.Etapas;
-import cl_modelos_pojos.EtapasPlanta;
 import cl_modelos_pojos.Plantas;
 import cl_modelos_pojos.PlantasCompra;
 import cl_modelos_pojos.PlantasVenta;
+import cl_modelos_pojos.Usuario;
 import cl_modelos_pojos.VentasPlanta;
 import java.util.List;
 
@@ -104,9 +104,15 @@ public class JJSON {
 
     public String jsonPlanta(Plantas planta) {
 
-        String mensaje = "[";
-        mensaje += "{\"id\":\"" + String.valueOf(planta.getId()) + "\",\"nombre\":\"" + planta.getNombre() + "\",\"descripcion\":\"" + planta.getDescripcion() + "\",\"tipo\":\"" + String.valueOf(planta.getTipoPlanta().getId()) + "\",\"imagen\":\"" + planta.getImagen() + "\"},";
+        String mensaje = "";
+        mensaje += "{\"id\":\"" + String.valueOf(planta.getId()) + "\",\"nombre\":\"" + planta.getNombre() + "\",\"descripcion\":\"" + planta.getDescripcion() + "\",\"tipo\":\"" + String.valueOf(planta.getTipoPlanta().getId()) + "\",\"imagen\":\"" + planta.getImagen() + "\"}";
         return mensaje;
     }
     
+    public String jsonUsuario(Usuario usuario) {
+
+        String mensaje = "";
+        mensaje += "{\"correo\":\"" + usuario.getCorreo() + "\",\"clave\":\"" + usuario.getClave() + "\",\"tipo\":\"" + usuario.getTipo()+ "\"}";
+        return mensaje;
+    }
 }

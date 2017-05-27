@@ -7,5 +7,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <footer class="col-xs-12">
-      Sergio Posada
+    <center><h2>Equipo EKKO - 2017</h2></center>
 </footer>
